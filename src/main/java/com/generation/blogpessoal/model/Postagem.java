@@ -17,12 +17,12 @@ import jakarta.validation.constraints.Size;
 
 public class Postagem {
 	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // O Atributo é a Chave Primária
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto Increment
 	private Long id;
 	
 	
-	@NotBlank(message = "O Atributo título é Obrigatório! ")
+	@NotBlank(message = "O Atributo título é Obrigatório! ") // Exclusivo para String
 	@Size(min = 5, max = 100, message = "O atributo título deve ter no mínimo 05 e no máximo 100 caracteres ")
 	private String titulo;
 	
@@ -33,7 +33,11 @@ public class Postagem {
 	
 	@UpdateTimestamp
 	private LocalDateTime data;
-
+	
+	/* Relacionameto */
+	
+	
+    
 	public Long getId() {
 		return id;
 	}
@@ -65,6 +69,5 @@ public class Postagem {
 	public void setData(LocalDateTime data) {
 		this.data = data;
 	} 
-	
 	
 }
